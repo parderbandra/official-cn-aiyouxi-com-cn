@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>爱游戏 · 重访笔记</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f7f5f2;
+      font-family: "Georgia", "Noto Serif SC", "Source Han Serif SC", serif;
+      color: #2c2a28;
+      line-height: 1.7;
+      padding: 2rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* 开场短句 —— 留白叙事 */
+    .opening {
+      margin-top: 4rem;
+      margin-bottom: 3.5rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      color: #5b5752;
+      border-left: 2px solid #c8bca8;
+      padding-left: 1.5rem;
+    }
+    .opening p {
+      margin-bottom: 0.7rem;
+    }
+    .opening .sign {
+      font-size: 0.9rem;
+      color: #8b8077;
+      margin-top: 0.8rem;
+      display: block;
+    }
+
+    /* 主标题: 克制层级 */
+    h1 {
+      font-weight: 400;
+      font-size: 2.2rem;
+      letter-spacing: 0.06em;
+      margin-top: 0.6rem;
+      margin-bottom: 0.25rem;
+      color: #1f1d1a;
+    }
+    .subhead {
+      font-size: 0.95rem;
+      color: #7b7269;
+      margin-bottom: 2.8rem;
+      border-bottom: 1px solid #d9d0c4;
+      padding-bottom: 1.2rem;
+    }
+
+    /* 承接段落 */
+    .intro-text {
+      font-size: 1rem;
+      margin-bottom: 2.8rem;
+      text-align: left;
+    }
+    .intro-text p {
+      margin-bottom: 1.25rem;
+    }
+
+    /* 特点卡片列表 —— 极简边框，温和呼吸 */
+    .feature-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin: 2.5rem 0 3rem;
+    }
+    .feature-item {
+      background: #ffffffd4;
+      backdrop-filter: blur(2px);
+      padding: 1.3rem 1.8rem;
+      border-radius: 0;
+      border: 1px solid #e2dbd0;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .feature-item:hover {
+      border-color: #b3a392;
+      background: #fffcf8;
+    }
+    .feature-item strong {
+      display: inline-block;
+      font-weight: 500;
+      color: #3e3a35;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.2rem;
+      font-size: 1.05rem;
+    }
+    .feature-item p {
+      font-size: 0.95rem;
+      color: #4d4843;
+      margin-top: 0.2rem;
+    }
+
+    /* 温和结尾 + 收藏提示 */
+    .closing {
+      margin: 2.8rem 0 3.2rem;
+      padding: 1.8rem 0;
+      border-top: 1px solid #d9d0c4;
+      border-bottom: 1px solid #d9d0c4;
+      font-size: 0.98rem;
+      line-height: 1.8;
+    }
+    .closing p {
+      margin-bottom: 0.9rem;
+    }
+    .closing a {
+      color: #4f4a44;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #b6aa99;
+      transition: color 0.2s, text-decoration-color 0.2s;
+    }
+    .closing a:hover {
+      color: #1f1d1a;
+      text-decoration-color: #1f1d1a;
+    }
+
+    /* FAQ 摘要 / 持续关注 */
+    .faq-note {
+      margin: 2rem 0 1.8rem;
+      background: #f0ece6;
+      padding: 1.5rem 2rem;
+      border-left: 3px solid #b3a392;
+      font-size: 0.92rem;
+    }
+    .faq-note summary {
+      font-weight: 450;
+      cursor: pointer;
+      color: #3d3934;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.4rem;
+      list-style: none;
+    }
+    .faq-note summary::marker {
+      display: none;
+      content: "";
+    }
+    .faq-note .detail-content {
+      margin-top: 0.6rem;
+      color: #5d5650;
+    }
+
+    /* 小字与footer */
+    .footnote {
+      margin-top: 3.5rem;
+      font-size: 0.8rem;
+      color: #9a9188;
+      text-align: center;
+      border-top: 1px solid #ddd6cb;
+      padding-top: 1.8rem;
+      letter-spacing: 0.03em;
+    }
+
+    /* 响应式 */
+    @media (max-width: 480px) {
+      body {
+        padding: 1.25rem 1rem;
+      }
+      .opening {
+        margin-top: 2rem;
+        padding-left: 1rem;
+        font-size: 1rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .feature-item {
+        padding: 1rem 1.2rem;
+      }
+      .faq-note {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- 开场短句：再次访问的思绪 -->
+    <div class="opening">
+      <p>有时，一个页面会留在书签的角落，</p>
+      <p>等某个安静的下午重新点开。</p>
+      <span class="sign">—— 重访 · 记</span>
+    </div>
+
+    <!-- 标题层级 -->
+    <h1>爱游戏</h1>
+    <div class="subhead">有关收藏、回看与温和的陪伴</div>
+
+    <!-- 承接段落 —— 从再次访问、收藏切入 -->
+    <div class="intro-text">
+      <p>
+        打开浏览器的书签栏，总有一些站点很久没去，却也不舍得删除。<strong>爱游戏</strong> 对我而言就是这样一个地方。
+        它不喧哗，不催促，只是安静地提供一些与游戏相关的思考、记录和推荐。重新打开时，页面干净如故，
+        像一位不多言的老朋友，默默等着你坐下。
+      </p>
+      <p>
+        收藏夹里放得久了，有时候会忘掉当初为何存下它。可每次再点开，总能找到一些熟悉的、踏实的感受。
+        没有铺满屏幕的弹窗，没有浮夸的标语，只有内容本身。这大概就是我一直保留它的原因。
+      </p>
+    </div>
+
+    <!-- 特点列表：克制而清晰 -->
+    <div class="feature-grid">
+      <div class="feature-item">
+        <strong>· 不追赶热点的笔调</strong>
+        <p>文章与推荐更侧重可读性，而非时效。你可以在任何一周打开，依然觉得恰如其分。</p>
+      </div>
+      <div class="feature-item">
+        <strong>· 适于收藏的篇幅</strong>
+        <p>多数内容不长不短，刚好够一杯茶的时间读完，也适合存下来反复看。</p>
+      </div>
+      <div class="feature-item">
+        <strong>· 沉默的更新节奏</strong>
+        <p>不必每天刷新。偶尔想起时，那里或许已经有了新东西，也可能没有——但旧内容依旧清晰可读。</p>
+      </div>
+      <div class="feature-item">
+        <strong>· 干净页面，朴素结构</strong>
+        <p>没有多余的社交按钮与自动播放。页面尊重你的注意力，也尊重你的收藏夹。</p>
+      </div>
+    </div>
+
+    <!-- 温和结尾 + 嵌入链接（句中自然使用） -->
+    <div class="closing">
+      <p>
+        如果你也曾经把它存进书签，或者只是偶然路过，不妨找个不太忙的午后再去看看。
+        我通常会在清理收藏夹时点开 <a href="https://official-cn-aiyouxi.com.cn">爱游戏</a>，
+        然后不知不觉读完几页，最后又把标签留了下来。
+      </p>
+      <p>
+        有些站点不追求“日活”和“留存”，它们只是安静地存在着。你能再次找到它，
+        本身就是一种难得的默契。
+      </p>
+    </div>
+
+    <!-- FAQ摘要 / 持续关注小提示 —— 温和叙述 -->
+    <details class="faq-note">
+      <summary>❍ 关于持续关注 · 几句实在话</summary>
+      <div class="detail-content">
+        <p>
+          如果你愿意持续留意这个站点，不必设置特别的提醒。隔两三个月想起，打开书签，
+          或者顺手在地址栏敲下记忆中的网址——<strong>爱游戏</strong> 很可能还在那里，
+          保持着它一贯的安静节奏。
+        </p>
+        <p>
+          它没有什么邮件订阅，也没有推送通知。关注它的方式很简单：偶尔回来，就够了。
+        </p>
+      </div>
+    </details>
+
+    <!-- 脚注，仅保留必要的指引 -->
+    <div class="footnote">
+      <span>重访于一个普通日子 · 书签依然在</span>
+    </div>
+
+  </div>
+</body>
+</html>

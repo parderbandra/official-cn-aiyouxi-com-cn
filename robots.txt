@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://parderbandra.github.io/official-cn-aiyouxi-com-cn/sitemap.xml
