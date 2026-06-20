@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG模拟器 · 故事序章</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5fbf9;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1f3a38;
+            line-height: 1.7;
+            padding: 0 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 840px;
+            margin: 2.5rem auto 3rem;
+        }
+
+        /* 开场短句 —— 叙事基调 */
+        .opening {
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            border-left: 5px solid #2a9d8f;
+            padding-left: 1.4rem;
+            margin-bottom: 2.2rem;
+            color: #2c5c57;
+            font-weight: 420;
+        }
+
+        .opening em {
+            font-style: normal;
+            background: linear-gradient(135deg, #2a9d8f 20%, #50b9ae);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* 承接段落 */
+        .lead {
+            background: #ffffffdd;
+            backdrop-filter: blur(2px);
+            padding: 1.8rem 1.8rem 2rem;
+            border-radius: 36px 12px 36px 12px;
+            box-shadow: 0 8px 24px rgba(30, 75, 70, 0.06);
+            margin-bottom: 2.5rem;
+            border: 1px solid #cbebe7;
+        }
+
+        .lead p {
+            margin-bottom: 1.3rem;
+        }
+
+        .lead p:last-child {
+            margin-bottom: 0;
+        }
+
+        .lead strong {
+            color: #1d7066;
+            font-weight: 550;
+        }
+
+        .lead a {
+            color: #1f7b6f;
+            text-decoration: none;
+            border-bottom: 2px solid #b2dfd8;
+            transition: border-color 0.2s, background 0.15s;
+            font-weight: 500;
+        }
+
+        .lead a:hover {
+            border-bottom-color: #1f7b6f;
+            background: #e1f5f0;
+        }
+
+        /* 网格卡片 —— 特点列表 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .card-item {
+            background: white;
+            border-radius: 24px 8px 24px 8px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 6px 14px rgba(20, 65, 55, 0.04);
+            border: 1px solid #d8eee9;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(32, 95, 83, 0.08);
+            border-color: #97ccc2;
+        }
+
+        .card-item .num {
+            display: inline-block;
+            font-size: 0.7rem;
+            background: #2a9d8f22;
+            color: #1f7066;
+            padding: 0.1rem 0.6rem;
+            border-radius: 40px;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.6rem;
+            font-weight: 470;
+        }
+
+        .card-item h3 {
+            font-size: 1.15rem;
+            font-weight: 550;
+            margin-bottom: 0.4rem;
+            color: #104e45;
+            letter-spacing: -0.01em;
+        }
+
+        .card-item p {
+            font-size: 0.9rem;
+            color: #3b625b;
+        }
+
+        /* 温和结尾 + 场景提示 */
+        .closing {
+            background: #e5f3ef;
+            border-radius: 40px 12px 40px 12px;
+            padding: 1.8rem 1.8rem 1.9rem;
+            margin-top: 0.6rem;
+            border: 1px solid #badbd3;
+        }
+
+        .closing p {
+            margin-bottom: 0.75rem;
+        }
+
+        .closing a {
+            color: #0e5c52;
+            text-decoration: underline wavy #78b9ae 1.5px;
+            text-underline-offset: 4px;
+            font-weight: 510;
+            transition: text-decoration-color 0.2s;
+        }
+
+        .closing a:hover {
+            text-decoration-color: #1b8879;
+        }
+
+        .scenario-tip {
+            display: inline-block;
+            background: white;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            margin-top: 0.4rem;
+            border: 1px solid #90c5bb;
+            color: #235f56;
+        }
+
+        .faq-mini {
+            margin-top: 1.2rem;
+            border-top: 1px solid #c1ddd5;
+            padding-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.2rem;
+            font-size: 0.88rem;
+        }
+
+        .faq-mini span {
+            background: #ffffffb8;
+            padding: 0.15rem 0.9rem;
+            border-radius: 30px;
+            color: #1f6157;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dotted #c2ded6;
+            margin: 0.8rem 0 1rem;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 540px) {
+            body {
+                padding: 0 1rem;
+            }
+            .lead {
+                padding: 1.3rem;
+                border-radius: 28px 8px 28px 8px;
+            }
+            .card-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.9rem;
+            }
+            .closing {
+                padding: 1.3rem;
+            }
+            .opening {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 开场短句 -->
+        <div class="opening">
+            <em>PG模拟器</em> · 一种关于模式、状态与边界的安静观察。
+        </div>
+
+        <!-- 承接段落：从主题关键词背后的内容展开 -->
+        <div class="lead">
+            <p>
+                模拟，从来不只是复制。它让我们在可控的粒度下，推演变量、观察反馈、调整假设。  
+                <strong>PG模拟器</strong> 的设计初衷，正是为那些需要在浏览器中快速验证逻辑、对比路径、理解系统行为的人，提供一个轻量、专注的工具环境。
+            </p>
+            <p>
+                无论是策略推演、参数试探，还是流程的局部重放——你不需要本地环境，不需要安装，打开 <a href="https://cn-web-pgsimulator.com">PG模拟器</a> 即可进入一个干净的推演空间。  
+                它不承诺奇迹，只提供结构化的反馈。
+            </p>
+        </div>
+
+        <!-- 特点列表：卡片网格 -->
+        <div class="card-grid">
+            <div class="card-item">
+                <span class="num">01</span>
+                <h3>瞬时状态</h3>
+                <p>每一步操作都即时反映状态变化，便于追踪因果链条。</p>
+            </div>
+            <div class="card-item">
+                <span class="num">02</span>
+                <h3>无环境依赖</h3>
+                <p>纯前端实现，只要浏览器就能运行，无需配置后端或数据库。</p>
+            </div>
+            <div class="card-item">
+                <span class="num">03</span>
+                <h3>路径记录</h3>
+                <p>自动保存关键分支与决策记录，方便回溯比较不同走向。</p>
+            </div>
+            <div class="card-item">
+                <span class="num">04</span>
+                <h3>参数微调</h3>
+                <p>核心数值与边界条件支持细粒度调节，观察输出敏感度。</p>
+            </div>
+        </div>
+
+        <!-- 温和结尾 + 场景提示 + FAQ摘要 -->
+        <div class="closing">
+            <p>
+                模拟的价值不在于预测，而在于加深理解。每一次参数调整、每一个分支选择，都在帮你构建更清晰的系统图景。  
+                如果你正在寻找一个低摩擦的思考工具，不妨试试 <a href="https://cn-web-pgsimulator.com">PG模拟器</a>——它不会替你决策，但会让你看到更多可能。
+            </p>
+            <div class="scenario-tip">
+                ⚡ 常见场景：流程分支验证 · 参数对比 · 边界测试 · 教学演示
+            </div>
+            <hr>
+            <div class="faq-mini">
+                <span>❓ 需要注册吗 → 不需要，直接使用</span>
+                <span>📁 数据保存 → 本地存储，无服务器上传</span>
+                <span>🧪 实验次数 → 无限制，反复调整</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
